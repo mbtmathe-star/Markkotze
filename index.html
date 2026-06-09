@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Kotze | Author · Coach · Media Personality</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Outfit:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:        #0B1929;
+  --navy-mid:    #112236;
+  --navy-light:  #1A3050;
+  --navy-subtle: #1E3A5F;
+  --gold:        #C9A227;
+  --gold-light:  #E8C040;
+  --gold-pale:   #F5E8A8;
+  --black:       #050D17;
+  --white:       #FFFFFF;
+  --text-dim:    rgba(255,255,255,0.55);
+  --text-faint:  rgba(255,255,255,0.28);
+  --border:      rgba(201,162,39,0.18);
+  --border-dim:  rgba(255,255,255,0.08);
+  --gap: 110px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11,25,41,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dim);
+  padding: 0 6%; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--white); letter-spacing: 0.3px;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  color: var(--text-dim); text-decoration: none;
+  font-size: 14px; font-weight: 400; letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--gold); color: var(--black);
+  padding: 10px 26px; border-radius: 4px;
+  text-decoration: none; font-size: 14px; font-weight: 600;
+  letter-spacing: 0.3px; transition: background 0.2s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 6% 90px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 1000px; height: 700px;
+  background: rgba(201,162,39,0.06);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid var(--border);
+  color: var(--gold); font-size: 11px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 8px 20px; border-radius: 2px; margin-bottom: 36px;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow::before { content: '◆'; font-size: 7px; }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 76px);
+  font-weight: 700; color: var(--white);
+  line-height: 1.08; letter-spacing: -1px;
+  margin-bottom: 28px; max-width: 860px;
+  position: relative; z-index: 1;
+}
+.hero h1 em { color: var(--gold); font-style: italic; }
+
+.hero-sub {
+  font-size: 17px; font-weight: 300;
+  color: var(--text-dim); max-width: 640px;
+  line-height: 1.8; margin-bottom: 52px;
+  position: relative; z-index: 1;
+}
+
+/* VIDEO FRAME */
+.video-frame {
+  width: 100%; max-width: 860px;
+  aspect-ratio: 16/9;
+  background: var(--navy-light);
+  border: 1px solid var(--border);
+  border-radius: 6px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 16px;
+  margin-bottom: 52px; position: relative; z-index: 1;
+  /* REPLACE INNER CONTENT WITH:
+     <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+       <source src="mark-intro.mp4" type="video/mp4">
+     </video>
+  */
+}
+.play-ring {
+  width: 76px; height: 76px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: background 0.2s, transform 0.15s;
+  background: rgba(201,162,39,0.1);
+}
+.play-ring:hover { background: rgba(201,162,39,0.22); transform: scale(1.07); }
+.play-ring svg { fill: var(--gold); margin-left: 5px; }
+.video-label { font-size: 12px; color: var(--text-faint); letter-spacing: 1px; text-transform: uppercase; }
+
+/* HERO CTA */
+.hero-actions {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  justify-content: center; margin-bottom: 64px;
+  position: relative; z-index: 1;
+}
+.btn-gold {
+  background: var(--gold); color: var(--black);
+  padding: 16px 42px; border-radius: 4px;
+  text-decoration: none; font-size: 15px; font-weight: 600;
+  letter-spacing: 0.3px; transition: background 0.2s, transform 0.15s;
+}
+.btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: rgba(255,255,255,0.8);
+  padding: 16px 36px; border-radius: 4px;
+  text-decoration: none; font-size: 15px; font-weight: 400;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: rgba(255,255,255,0.55); color: var(--white); }
+
+/* STATS */
+.hero-stats {
+  display: flex; gap: 56px; flex-wrap: wrap;
+  justify-content: center;
+  border-top: 1px solid var(--border-dim);
+  padding-top: 48px; width: 100%; max-width: 760px;
+  position: relative; z-index: 1;
+}
+.stat .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 700; color: var(--gold);
+  display: block; line-height: 1; margin-bottom: 6px;
+}
+.stat .lbl { font-size: 12px; color: var(--text-faint); letter-spacing: 0.5px; }
+
+/* ── PARTNERS ── */
+.partners {
+  padding: 52px 6%;
+  background: var(--navy-mid);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+}
+.partners-lbl {
+  text-align: center; font-size: 10px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--text-faint); margin-bottom: 32px;
+}
+.partners-row {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; align-items: center;
+}
+.partner {
+  padding: 10px 28px;
+  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  border-right: 1px solid var(--border-dim);
+  transition: color 0.2s;
+}
+.partner:hover { color: var(--gold); }
+.partner:last-child { border-right: none; }
+
+/* ── SHARED SECTION STYLES ── */
+.section { padding: var(--gap) 6%; background: var(--navy); }
+.section.alt { background: var(--navy-mid); }
+.section.dark { background: var(--black); }
+
+.tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 14px; display: block;
+}
+.h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 3.8vw, 48px); font-weight: 700;
+  line-height: 1.15; letter-spacing: -0.5px;
+  margin-bottom: 18px; color: var(--white);
+}
+.lead {
+  font-size: 17px; color: var(--text-dim);
+  max-width: 540px; line-height: 1.8; margin-bottom: 52px;
+}
+.center { text-align: center; }
+.center .lead { margin-left: auto; margin-right: auto; }
+
+/* ── PILLARS ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2px;
+  border: 1px solid var(--border-dim);
+  border-radius: 6px; overflow: hidden;
+}
+.pillar {
+  background: var(--navy-mid);
+  padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.pillar:hover { background: var(--navy-subtle); }
+.pillar::after {
+  content: '';
+  position: absolute; bottom: 0; left: 36px; right: 36px;
+  height: 2px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.pillar:hover::after { transform: scaleX(1); }
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 700;
+  color: rgba(201,162,39,0.12); line-height: 1;
+  margin-bottom: 20px; display: block;
+}
+.pillar h3 { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--white); }
+.pillar p { font-size: 14px; color: var(--text-dim); line-height: 1.75; }
+
+/* ── BIG STORY ── */
+.story-grid {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 72px; align-items: center;
+}
+.story-img {
+  border-radius: 4px; overflow: hidden;
+  aspect-ratio: 3/4; background: var(--navy-subtle);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  /* REPLACE with: <img src="client.jpg" style="width:100%;height:100%;object-fit:cover;"> */
+}
+.story-img svg { opacity: 0.25; }
+.story-img-note { font-size: 11px; color: var(--text-faint); letter-spacing: 1px; }
+.big-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px; line-height: 0.5;
+  color: var(--gold); opacity: 0.25;
+  display: block; margin-bottom: 24px;
+}
+.big-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.8vw, 32px); font-style: italic;
+  color: var(--white); line-height: 1.5; margin-bottom: 28px;
+}
+.story-narrative {
+  font-size: 15px; color: var(--text-dim);
+  line-height: 1.85; margin-bottom: 36px;
+}
+.story-person { display: flex; align-items: center; gap: 16px; }
+.story-av {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(201,162,39,0.15);
+  border: 2px solid rgba(201,162,39,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px; color: var(--gold); flex-shrink: 0;
+}
+.story-name { font-weight: 600; font-size: 15px; color: var(--white); }
+.story-role { font-size: 12px; color: var(--text-faint); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+.about-img {
+  position: relative; border-radius: 4px; overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--navy-subtle);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 12px;
+  /* REPLACE with: <img src="mark-kotze.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top;"> */
+}
+.about-img svg { opacity: 0.25; }
+.about-img-note { font-size: 11px; color: var(--text-faint); letter-spacing: 1px; }
+.about-badge {
+  position: absolute; bottom: 24px; right: 24px;
+  background: var(--gold); color: var(--black);
+  border-radius: 4px; padding: 14px 18px; text-align: center;
+}
+.about-badge .big { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; display: block; line-height: 1; }
+.about-badge .sml { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+.about-body .lead { max-width: 100%; }
+.about-quote {
+  border-left: 2px solid var(--gold);
+  padding-left: 20px; margin: 28px 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic; color: var(--white); line-height: 1.6;
+}
+.creds { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+.cred { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+.cred-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+
+/* ── BOOKS ── */
+.books-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.book-card {
+  background: var(--navy-mid); border: 1px solid var(--border-dim);
+  border-radius: 4px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: border-color 0.25s;
+}
+.book-card:hover { border-color: var(--border); }
+.book-cover {
+  height: 360px; background: var(--navy-subtle);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 10px;
+  border-bottom: 1px solid var(--border-dim);
+  overflow: hidden;
+}
+.book-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
+.book-cover-label { font-size: 11px; color: var(--text-faint); letter-spacing: 1px; }
+.book-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.book-tag { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; display: block; }
+.book-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 700; color: var(--white);
+  margin-bottom: 14px; line-height: 1.3;
+}
+.book-desc { font-size: 14px; color: var(--text-dim); line-height: 1.75; flex: 1; }
+.book-cta {
+  display: inline-block; margin-top: 24px;
+  padding: 11px 24px; border-radius: 4px;
+  border: 1px solid var(--border); color: var(--gold);
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+.book-cta:hover { background: rgba(201,162,39,0.1); border-color: var(--gold); }
+.item-badge {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(201,162,39,0.12);
+  border: 1px solid rgba(201,162,39,0.3);
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ── TESTIMONIALS ── */
+.testi-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2px; border: 1px solid var(--border-dim);
+  border-radius: 6px; overflow: hidden;
+}
+.testi {
+  background: var(--navy-mid); padding: 40px 36px;
+  transition: background 0.2s;
+}
+.testi:hover { background: var(--navy-subtle); }
+.stars { color: var(--gold); font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; }
+.testi-q { font-size: 16px; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 28px; font-style: italic; }
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.t-av {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(201,162,39,0.12);
+  border: 1.5px solid rgba(201,162,39,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: var(--gold); flex-shrink: 0;
+}
+.t-name { font-weight: 500; font-size: 14px; color: var(--white); }
+.t-role { font-size: 12px; color: var(--text-faint); }
+
+
+/* ── BOOK MARK SPEAKING ── */
+.speaking-section {
+  padding: var(--gap) 6%;
+  background: var(--black);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+  position: relative;
+  overflow: hidden;
+}
+.speaking-section::before {
+  content: 'LIFE COACH';
+  position: absolute;
+  right: -18px;
+  top: 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(70px, 12vw, 170px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.025);
+  line-height: 0.85;
+  letter-spacing: -4px;
+  pointer-events: none;
+}
+.speaking-shell {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 68px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.speaking-image-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--navy-mid);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.36);
+}
+.speaking-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(5,13,23,0.28);
+  pointer-events: none;
+}
+.speaking-image-wrap img {
+  width: 100%;
+  height: 100%;
+  min-height: 620px;
+  object-fit: cover;
+  display: block;
+}
+.speaking-image-badge {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 2;
+  background: rgba(5,13,23,0.86);
+  border: 1px solid rgba(201,162,39,0.32);
+  border-radius: 6px;
+  padding: 16px 18px;
+  max-width: 300px;
+}
+.speaking-image-badge strong {
+  display: block;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.speaking-image-badge span {
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.speaking-copy {
+  padding: 12px 0;
+}
+.speaking-copy .lead {
+  max-width: 720px;
+  margin-bottom: 30px;
+}
+.speaking-pullquote {
+  border-left: 2px solid var(--gold);
+  padding-left: 22px;
+  margin: 30px 0 34px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(23px, 2.4vw, 34px);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--white);
+}
+.speaking-topics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  border: 1px solid var(--border-dim);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 34px 0;
+}
+.speaking-topic {
+  background: rgba(17,34,54,0.82);
+  padding: 24px 22px;
+}
+.speaking-topic strong {
+  color: var(--gold);
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.speaking-topic span {
+  color: rgba(255,255,255,0.68);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.speaking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.speaking-mini-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 32px;
+}
+.speaking-mini-list span {
+  border: 1px solid rgba(201,162,39,0.24);
+  background: rgba(201,162,39,0.07);
+  color: rgba(255,255,255,0.74);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+@media (max-width: 960px) {
+  .speaking-shell { grid-template-columns: 1fr; gap: 40px; }
+  .speaking-image-wrap img { min-height: auto; aspect-ratio: 4/5; }
+  .speaking-topics { grid-template-columns: 1fr; }
+}
+
+/* ── MMW INITIATIVE ── */
+.mmw { padding: var(--gap) 6%; background: var(--black); position: relative; overflow: hidden; }
+.mmw::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--gold);
+}
+.mmw-inner {
+  display: grid; grid-template-columns: 1.2fr 1fr;
+  gap: 80px; align-items: center;
+}
+.mmw-body {}
+.mmw-stats {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; border: 1px solid var(--border-dim);
+  border-radius: 4px; overflow: hidden;
+}
+.mmw-stat {
+  background: var(--navy-mid); padding: 32px 28px;
+  transition: background 0.2s;
+}
+.mmw-stat:hover { background: var(--navy-subtle); }
+.mmw-stat .n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 700; color: var(--gold);
+  line-height: 1; margin-bottom: 6px; display: block;
+}
+.mmw-stat .l { font-size: 13px; color: var(--text-dim); }
+.mmw-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 36px; color: var(--gold); text-decoration: none;
+  font-size: 14px; font-weight: 500; letter-spacing: 0.3px;
+  border-bottom: 1px solid rgba(201,162,39,0.3);
+  padding-bottom: 4px; transition: border-color 0.2s;
+}
+.mmw-link:hover { border-color: var(--gold); }
+.mmw-lead { max-width: 100%; }
+
+/* ── PACKAGES ── */
+.pkg-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px; border: 1px solid var(--border-dim);
+  border-radius: 6px; overflow: hidden;
+  align-items: start;
+}
+.pkg {
+  background: var(--navy-mid); padding: 40px 32px;
+  position: relative;
+}
+.pkg.featured { background: var(--navy-subtle); }
+.pkg-img {
+  width: calc(100% + 64px);
+  margin: -40px -32px 28px;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-dim);
+  background: var(--navy-subtle);
+}
+.pkg-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pkg-badge {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--black);
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 6px 20px; border-radius: 0 0 4px 4px; white-space: nowrap;
+}
+.pkg-tier { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.pkg-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 700; margin-bottom: 6px; color: var(--white);
+}
+.pkg-desc { font-size: 14px; color: var(--text-dim); margin-bottom: 28px; line-height: 1.6; }
+.pkg-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 28px; }
+.pkg-cur { font-size: 18px; font-weight: 500; color: var(--text-dim); }
+.pkg-amt { font-family: 'Cormorant Garamond', serif; font-size: 50px; font-weight: 700; line-height: 1; color: var(--gold); }
+.pkg-per { font-size: 13px; color: var(--text-faint); align-self: flex-end; padding-bottom: 7px; }
+.pkg-feats { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; }
+.pkg-feats li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.72); }
+.chk {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: rgba(201,162,39,0.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px; color: var(--gold);
+  font-size: 10px; font-weight: 700;
+}
+.pkg-btn {
+  display: block; text-align: center; padding: 14px;
+  border-radius: 4px; font-size: 14px; font-weight: 500;
+  text-decoration: none; transition: all 0.2s;
+  border: 1px solid rgba(201,162,39,0.35); color: var(--gold); background: transparent;
+}
+.pkg-btn:hover { background: rgba(201,162,39,0.12); border-color: var(--gold); }
+.pkg.featured .pkg-btn { background: var(--gold); border-color: var(--gold); color: var(--black); font-weight: 600; }
+.pkg.featured .pkg-btn:hover { background: var(--gold-light); }
+
+/* ── OFFERINGS ── */
+.offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.offering-card {
+  background: var(--navy-mid);
+  border: 1px solid var(--border-dim);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s, transform 0.2s;
+}
+.offering-card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+}
+.offering-image {
+  height: 420px;
+  background: var(--navy-subtle);
+  border-bottom: 1px solid var(--border-dim);
+}
+.offering-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.offering-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.offering-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.offering-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.offering-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+.offering-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 22px;
+  flex: 1;
+}
+.offering-btn {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 12px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s;
+}
+.offering-btn:hover {
+  background: rgba(201,162,39,0.1);
+  border-color: var(--gold);
+}
+
+/* ── FEATURED PROGRAMME ── */
+.feature-programme {
+  padding: var(--gap) 6%;
+  background: var(--black);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.feature-programme::before {
+  content: 'TRUE IDENTITY';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(70px, 13vw, 190px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.feature-programme-inner {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.feature-programme-img {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(201,162,39,0.45);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  background: var(--navy-subtle);
+}
+.feature-programme-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.feature-programme-copy .lead { max-width: 100%; margin-bottom: 30px; }
+.programme-price-row { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0 32px; }
+.programme-price-pill {
+  border: 1px solid rgba(201,162,39,0.35);
+  background: rgba(201,162,39,0.1);
+  padding: 16px 18px;
+  border-radius: 6px;
+  min-width: 145px;
+}
+.programme-price-pill strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.programme-price-pill span { font-size: 12px; color: var(--text-dim); }
+.programme-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 34px;
+}
+.programme-mini {
+  border: 1px solid var(--border-dim);
+  background: rgba(255,255,255,0.035);
+  border-radius: 6px;
+  padding: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+.programme-mini b { color: var(--white); display: block; margin-bottom: 3px; }
+.pkg.teen-highlight {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,162,39,0.34);
+}
+.offering-card.offering-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  background: var(--navy-subtle);
+  border-color: rgba(201,162,39,0.45);
+}
+.offering-card.offering-featured .offering-image { height: 100%; min-height: 480px; border-bottom: none; border-right: 1px solid var(--border-dim); }
+.offering-card.offering-featured .offering-title { font-size: clamp(30px, 3.5vw, 48px); }
+.offering-card.offering-featured .offering-price { font-size: 54px; }
+
+
+
+
+/* ── EDITORIAL NEW RELEASE LAYOUT ── */
+.editorial-new-release-grid {
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 70px;
+}
+.editorial-cover-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid rgba(201,162,39,0.42);
+  background: var(--black);
+  box-shadow: 0 32px 90px rgba(0,0,0,0.48);
+  min-height: 560px;
+}
+.editorial-cover-frame::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(201,162,39,0.26);
+  z-index: 2;
+  pointer-events: none;
+}
+.editorial-cover-frame::after {
+  content: 'NEW 2026';
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  z-index: 3;
+  background: var(--gold);
+  color: var(--black);
+  padding: 9px 16px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+.editorial-cover-frame img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.editorial-release-copy {
+  border-left: 2px solid rgba(201,162,39,0.55);
+  padding-left: 34px;
+}
+.editorial-release-copy .tag { margin-bottom: 18px; }
+.editorial-release-copy h2 { margin-bottom: 24px; }
+.editorial-release-copy .affirmation-cloud {
+  padding: 0;
+  margin: 26px 0 28px;
+}
+.editorial-release-copy .affirmation-cloud span {
+  border-color: rgba(201,162,39,0.28);
+  background: rgba(201,162,39,0.08);
+}
+.editorial-release-statement {
+  border: 1px solid rgba(201,162,39,0.35);
+  background: rgba(255,255,255,0.045);
+  border-radius: 6px;
+  padding: 24px;
+  margin: 28px 0 30px;
+}
+.editorial-release-statement strong {
+  display: block;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.editorial-release-statement p {
+  margin-bottom: 0;
+  max-width: 100%;
+}
+.editorial-route-cover { min-height: 620px; }
+@media (max-width: 960px) {
+  .editorial-new-release-grid { grid-template-columns: 1fr; gap: 38px; }
+  .editorial-release-copy { border-left: none; padding-left: 0; }
+  .editorial-cover-frame { min-height: 420px; }
+}
+
+/* ── NEW RELEASE PAGE GATEWAY ── */
+.campaign-spotlight.new-release-spotlight {
+  background: #050D17;
+}
+.campaign-spotlight.new-release-spotlight::before {
+  content: '31 DAY AFFIRMATIONS';
+  font-size: clamp(62px, 11vw, 180px);
+  top: 10%;
+  letter-spacing: -3px;
+}
+.book-html-card {
+  background: #15324b;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 560px;
+  border: 1px solid rgba(201,162,39,0.35);
+  box-shadow: 0 35px 100px rgba(0,0,0,0.48);
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.book-html-card::before {
+  content: '';
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(245,232,168,0.18);
+  pointer-events: none;
+}
+.book-html-top {
+  padding: 42px 42px 18px;
+  position: relative;
+  z-index: 1;
+}
+.book-html-top h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 66px);
+  line-height: 0.92;
+  margin-bottom: 12px;
+}
+.book-html-top span {
+  color: var(--gold-pale);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.affirmation-cloud {
+  padding: 22px 42px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+.affirmation-cloud span {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.78);
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.book-html-bottom {
+  padding: 30px 42px 42px;
+  position: relative;
+  z-index: 1;
+  background: rgba(11,25,41,0.95);
+}
+.book-html-bottom strong {
+  display: block;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.book-html-bottom p { color: rgba(255,255,255,0.72); font-size: 14px; line-height: 1.7; }
+.standalone-release-callout {
+  margin-top: 44px;
+  border: 1px solid rgba(201,162,39,0.35);
+  background: rgba(201,162,39,0.08);
+  padding: 24px;
+  border-radius: 8px;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+}
+
+/* ── TRUE IDENTITY FUNNEL UPGRADE ── */
+.campaign-spotlight {
+  padding: 118px 6%;
+  background: #050D17;
+  border-top: 1px solid rgba(201,162,39,0.45);
+  border-bottom: 1px solid rgba(201,162,39,0.45);
+  position: relative;
+  overflow: hidden;
+}
+.campaign-spotlight::before {
+  content: 'TRUE IDENTITY';
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(84px, 16vw, 240px);
+  font-weight: 700;
+  letter-spacing: -5px;
+  color: rgba(255,255,255,0.035);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.campaign-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(201,162,39,0.18);
+  pointer-events: none;
+}
+.campaign-topline {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 18px;
+  border: 1px solid rgba(201,162,39,0.45);
+  background: rgba(201,162,39,0.1);
+  color: var(--gold-pale);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 1;
+}
+.campaign-grid {
+  display: grid;
+  grid-template-columns: 0.86fr 1.14fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.campaign-copy h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -1.2px;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+.campaign-copy h2 em { color: var(--gold); font-style: italic; }
+.campaign-copy p {
+  color: rgba(255,255,255,0.72);
+  font-size: 17px;
+  line-height: 1.85;
+  max-width: 620px;
+  margin-bottom: 30px;
+}
+.campaign-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 34px;
+}
+.campaign-meta {
+  border: 1px solid rgba(201,162,39,0.35);
+  background: rgba(255,255,255,0.045);
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.78);
+}
+.campaign-meta strong { color: var(--gold); }
+.mega-price-card {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 6px;
+  padding: 18px 26px;
+  box-shadow: 0 18px 50px rgba(201,162,39,0.28);
+  margin-bottom: 28px;
+}
+.mega-price-card strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px;
+  line-height: 0.9;
+}
+.mega-price-card span { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+.poster-html {
+  background: #F5EFE4;
+  color: #0B1929;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 35px 100px rgba(0,0,0,0.48);
+  border: 1px solid rgba(255,255,255,0.28);
+}
+.poster-head {
+  text-align: center;
+  padding: 16px 22px 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(25px, 3.6vw, 42px);
+  font-weight: 700;
+  color: #0B1929;
+  background: #F9EFCB;
+}
+.poster-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 300px;
+  position: relative;
+}
+.poster-panel {
+  padding: 34px 34px;
+  position: relative;
+  overflow: hidden;
+}
+.poster-panel.left {
+  background: #f8f2e8;
+}
+.poster-panel.right {
+  background: rgba(201,162,39,0.14);
+}
+.poster-panel h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 70px);
+  line-height: 0.88;
+  color: #132236;
+  margin-bottom: 18px;
+  letter-spacing: -1px;
+}
+.poster-panel .small-title {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #21344d;
+  margin-bottom: 10px;
+}
+.poster-panel p { color: #4d5663; font-size: 14px; line-height: 1.55; max-width: 290px; }
+.poster-seal {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #C9A227;
+  border: 6px double rgba(11,25,41,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #0B1929;
+  transform: rotate(-8deg);
+}
+.poster-from-to {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 34px;
+  background: rgba(11,25,41,0.98);
+  color: var(--gold-pale);
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.poster-package {
+  display: grid;
+  grid-template-columns: 0.96fr 1.04fr;
+  gap: 0;
+  background: #fbf6ee;
+}
+.poster-books {
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+.poster-book-mini {
+  min-height: 150px;
+  background: #0B1929;
+  color: var(--gold-pale);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  border-radius: 4px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 18px 32px rgba(0,0,0,0.18);
+}
+.poster-book-mini.workbook {
+  background: #ffffff;
+  color: #12243a;
+}
+.poster-includes {
+  background: #0B1929;
+  color: white;
+  padding: 30px;
+  border-left: 1px solid rgba(201,162,39,0.35);
+}
+.poster-includes h4 {
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+.poster-inc { display: grid; gap: 16px; }
+.poster-inc div { border: 1px solid rgba(255,255,255,0.12); padding: 14px 15px; border-radius: 4px; color: rgba(255,255,255,0.78); font-size: 13px; }
+.poster-inc b { color: #fff; display: block; font-size: 15px; margin-bottom: 3px; }
+.poster-price-band {
+  background: #C9A227;
+  color: #050D17;
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.poster-price-band span { font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+.poster-price-band strong { font-family: 'Cormorant Garamond', serif; font-size: 60px; line-height: 0.85; }
+.poster-support {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(11,25,41,0.12);
+}
+.poster-support-card {
+  padding: 24px 28px;
+  background: #fffaf0;
+}
+.poster-support-card h5 { color: #0B1929; font-size: 16px; letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 6px; }
+.poster-support-card p { color: #546171; font-size: 13px; line-height: 1.5; margin-bottom: 12px; }
+.poster-support-card strong { background: #0B1929; color: #fff; display: inline-block; padding: 7px 16px; border-radius: 2px; font-size: 18px; }
+.campaign-strip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(201,162,39,0.25);
+  margin-top: 42px;
+}
+.campaign-strip div {
+  padding: 24px 22px;
+  border-right: 1px solid rgba(201,162,39,0.18);
+  background: rgba(255,255,255,0.035);
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+}
+.campaign-strip div:last-child { border-right: none; }
+.campaign-strip b { display: block; color: var(--gold); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.identity-suite-feature {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  background: #050D17;
+  border: 1px solid rgba(201,162,39,0.62);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.35);
+}
+.identity-suite-feature .offering-image { height: auto; min-height: 620px; border-bottom: none; border-right: 1px solid rgba(201,162,39,0.25); }
+.identity-suite-feature .offering-body { padding: 46px; }
+.identity-suite-feature .offering-title { font-size: clamp(34px, 4.5vw, 60px); }
+.identity-suite-feature .offering-desc { font-size: 16px; color: rgba(255,255,255,0.76); }
+.funnel-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0 28px;
+}
+.funnel-step {
+  border: 1px solid rgba(201,162,39,0.25);
+  background: rgba(255,255,255,0.045);
+  padding: 18px;
+  border-radius: 6px;
+  color: rgba(255,255,255,0.72);
+  font-size: 13px;
+}
+.funnel-step b { display: block; color: var(--gold); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.detail-link-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(201,162,39,0.35);
+  color: var(--gold);
+  transition: all 0.2s;
+}
+.detail-link.primary { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.detail-link:hover { transform: translateY(-2px); border-color: var(--gold); }
+.resource-card-emphasis { border-color: rgba(201,162,39,0.45); background: var(--navy-mid); }
+@media (max-width: 960px) {
+  .campaign-grid, .poster-package, .identity-suite-feature, .campaign-strip { grid-template-columns: 1fr; }
+  .poster-hero, .poster-books, .poster-support, .funnel-steps { grid-template-columns: 1fr; }
+  .poster-seal { position: relative; top: auto; right: auto; margin-top: 18px; }
+  .identity-suite-feature .offering-image { border-right: none; border-bottom: 1px solid rgba(201,162,39,0.25); min-height: 420px; }
+  .campaign-strip div { border-right: none; border-bottom: 1px solid rgba(201,162,39,0.18); }
+}
+
+/* ── CTA BANNER ── */
+.cta-section {
+  padding: var(--gap) 6%;
+  background: var(--gold);
+  text-align: center; position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: 'MARK MY WORDS';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 180px; font-weight: 700;
+  color: rgba(0,0,0,0.04); white-space: nowrap;
+  pointer-events: none; letter-spacing: -5px;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4.5vw, 56px); font-weight: 700;
+  color: var(--black); line-height: 1.15; margin-bottom: 18px;
+  position: relative; z-index: 1;
+}
+.cta-section p {
+  font-size: 18px; color: rgba(5,13,23,0.6);
+  margin-bottom: 44px; max-width: 480px;
+  margin-left: auto; margin-right: auto;
+  position: relative; z-index: 1;
+}
+.btn-dark {
+  background: var(--black); color: var(--gold-pale);
+  padding: 18px 52px; border-radius: 4px;
+  text-decoration: none; font-size: 15px; font-weight: 600;
+  letter-spacing: 0.3px; transition: background 0.2s, transform 0.15s;
+  display: inline-block; position: relative; z-index: 1;
+}
+.btn-dark:hover { background: var(--navy); transform: translateY(-2px); }
+
+/* ── EXPLORE MORE GATE ── */
+.explore-more-panel {
+  grid-column: 1 / -1;
+  background: rgba(201,162,39,0.08);
+  border: 1px solid rgba(201,162,39,0.34);
+  border-radius: 8px;
+  padding: 34px;
+  text-align: center;
+  margin: 8px 0 6px;
+}
+.explore-more-panel .tag { margin-bottom: 10px; }
+.explore-more-panel h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 40px);
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+.explore-more-panel p {
+  color: var(--text-dim);
+  max-width: 640px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+.explore-more-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--black);
+  padding: 14px 34px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.15s;
+}
+.explore-more-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+.gated-resource { display: none !important; }
+.offerings-grid.resources-expanded .gated-resource { display: flex !important; }
+.resources-reveal-note {
+  display: none;
+  grid-column: 1 / -1;
+  color: var(--gold);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 10px 0 0;
+}
+.offerings-grid.resources-expanded .resources-reveal-note { display: block; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 64px 6%;
+  background: var(--black);
+  border-top: 1px solid var(--border-dim);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px;
+}
+.f-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.6); }
+.f-logo span { color: var(--gold); }
+.f-links { display: flex; gap: 28px; }
+.f-links a { color: var(--text-faint); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+.f-links a:hover { color: rgba(255,255,255,0.75); }
+.f-copy { font-size: 12px; color: var(--text-faint); }
+
+
+
+/* ── SINGLE HTML MULTI-PAGE ROUTER ── */
+.route-page { display: none; min-height: 100vh; background: var(--navy); }
+.route-page.route-active { display: block; }
+.route-page > nav { position: fixed; top: 0; left: 0; right: 0; }
+.route-page .route-footer { padding: 54px 6%; background: var(--black); border-top: 1px solid var(--border-dim); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; color: var(--text-faint); font-size: 13px; }
+.route-page .route-footer a { color: var(--gold); text-decoration: none; }
+.route-page-shell { padding-top: 74px; }
+.route-subnav { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.route-pill-link { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border: 1px solid rgba(201,162,39,0.32); color: var(--gold); border-radius: 999px; text-decoration: none; font-size: 12px; font-weight: 600; }
+.route-pill-link:hover { background: rgba(201,162,39,0.1); }
+.route-page-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.route-page-card { background: rgba(255,255,255,0.045); border: 1px solid var(--border-dim); border-radius: 8px; padding: 28px; }
+.route-page-card.gold { background: rgba(201,162,39,0.08); border-color: rgba(201,162,39,0.38); }
+.route-page-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 28px; line-height: 1.1; margin-bottom: 10px; }
+.route-page-card p, .route-page-card li { color: var(--text-dim); font-size: 14px; line-height: 1.75; }
+.route-page-card strong { color: var(--gold); }
+.route-page-image { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--navy-light); box-shadow: 0 28px 80px rgba(0,0,0,0.34); }
+.route-page-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.route-flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 2px; border: 1px solid var(--border-dim); border-radius: 8px; overflow: hidden; margin-top: 34px; }
+.route-flow div { padding: 26px; background: var(--navy-mid); color: var(--text-dim); font-size: 14px; line-height: 1.65; }
+.route-flow b { display: block; color: var(--gold); letter-spacing: 1.4px; text-transform: uppercase; font-size: 12px; margin-bottom: 6px; }
+.route-split { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; }
+.route-breadcrumb { display:inline-flex; margin-bottom: 26px; color: var(--gold); border:1px solid rgba(201,162,39,.35); padding:8px 14px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; }
+@media (max-width: 960px) { .route-split, .campaign-grid, .poster-package { grid-template-columns: 1fr; } .route-page .route-footer { flex-direction: column; text-align:center; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .story-grid, .about-grid, .mmw-inner { grid-template-columns: 1fr; }
+  .story-img, .about-img { aspect-ratio: 16/9; }
+  .feature-programme-inner, .offering-card.offering-featured { grid-template-columns: 1fr; }
+  .offering-card.offering-featured .offering-image { border-right: none; border-bottom: 1px solid var(--border-dim); min-height: 360px; }
+  .programme-mini-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; text-align: center; }
+  .f-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+<main class="route-page route-active" id="home">
+<!-- ═══ NAV ═══ -->
+<nav>
+<div class="nav-logo">Mark<span>.</span>Kotze</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#books">Books</a>
+<a href="#speaking">Speaking</a>
+<a href="#page-true-identity-programme">Programme</a>
+<a href="#mmw">Mark My Words</a>
+<a href="#packages">Coaching</a>
+</div>
+<a class="nav-cta" href="#packages">Book a Session</a>
+</nav>
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+<div class="hero-eyebrow">Author · Coach · Media Personality</div>
+<h1>
+    Activate Your Voice.<br/>
+<em>Master Your Purpose.</em>
+</h1>
+<p class="hero-sub">
+    Meet Mark Kotze — South African author, acclaimed media personality, and transformational life coach helping corporate teams and individuals unlock sustainable personal mastery.
+  </p>
+<!-- VIDEO FRAME — replace inner content with Mark's intro video -->
+<div class="video-frame">
+<div class="play-ring">
+<svg height="28" viewbox="0 0 24 24" width="28"><path d="M8 5v14l11-7z"></path></svg>
+</div>
+<span class="video-label">[ Mark's Intro Video Goes Here ]</span>
+</div>
+<div class="hero-actions">
+<a class="btn-gold" href="#packages">Book a Strategy Session</a>
+<a class="btn-outline" href="#speaking">Explore Keynote Topics</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><span class="num">400+</span><span class="lbl">Lives Changed</span></div>
+<div class="stat"><span class="num">20+</span><span class="lbl">Years Experience</span></div>
+<div class="stat"><span class="num">3</span><span class="lbl">Published Books</span></div>
+<div class="stat"><span class="num">R30K</span><span class="lbl">Competition Prize Pool</span></div>
+</div>
+</section>
+<!-- ═══ PARTNERS ═══ -->
+<div class="partners">
+<p class="partners-lbl">Recognised &amp; Supported By</p>
+<div class="partners-row">
+<div class="partner">National Arts Council</div>
+<div class="partner">Sport, Arts &amp; Culture</div>
+<div class="partner">Presidential Employment Stimulus</div>
+<div class="partner">KOK Media</div>
+<div class="partner">Progressive Arts Network</div>
+<div class="partner">SABC News</div>
+</div>
+</div>
+<!-- ═══ PILLARS ═══ -->
+<section class="section alt" id="services">
+<div class="center">
+<span class="tag">What Mark Delivers</span>
+<h2 class="h2">Three Pillars of Transformation</h2>
+<p class="lead">Whether you're an executive, an emerging leader, or someone ready to rewrite their story — Mark meets you where you are and takes you further than you imagined.</p>
+</div>
+<div class="pillars-grid">
+<div class="pillar">
+<span class="pillar-num">01</span>
+<h3>Executive &amp; Corporate Leadership</h3>
+<p>Building high-performance cultures, dynamic communication frameworks, and ethical corporate leadership models. The outcome: streamlined internal operations and highly motivated teams that execute with conviction.</p>
+</div>
+<div class="pillar">
+<span class="pillar-num">02</span>
+<h3>Personal Mastery &amp; Mindset Coaching</h3>
+<p>One-on-one tailored sessions drawing on psychological principles to break through mental blocks. The outcome: clarity of direction, enhanced decision-making, and an actionable lifestyle roadmap you'll actually follow.</p>
+</div>
+<div class="pillar">
+<span class="pillar-num">03</span>
+<h3>Literacy &amp; Communication Mastery</h3>
+<p>Public speaking development, creative writing workshops, and confidence-building for emerging leaders. The outcome: a commanding, authentic presence in any room, industry, or stage.</p>
+</div>
+</div>
+</section>
+<!-- ═══ BIG LIFE CHANGE STORY ═══ -->
+<section class="section dark" id="stories">
+<span class="tag">Change Story</span>
+<h2 class="h2">One Life. Completely Turned Around.</h2>
+<div class="story-grid" style="margin-top:48px;">
+<div class="story-img">
+<!-- REPLACE with client photo -->
+<svg fill="none" height="52" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" viewbox="0 0 24 24" width="52"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+<span class="story-img-note">[ CLIENT PHOTO GOES HERE ]</span>
+</div>
+<div>
+<span class="big-quote-mark">"</span>
+<p class="big-quote-text">I walked in carrying a decade of decisions I wasn't proud of. Mark didn't judge a single one. He just asked the one question I'd been running from — and everything shifted from there.</p>
+<p class="story-narrative">
+        Sipho Nkosi arrived at a crossroads at 38. A mid-level manager with a stable salary and a growing sense that his life was happening to him rather than being built by him. Through six months of one-on-one coaching with Mark, he confronted the patterns driving his decisions — and made three career moves that doubled his income and put him on track to launch his own consulting firm. Today he serves as a mentorship partner in the Mark My Words programme.
+      </p>
+<p class="story-narrative" style="font-size:13px;color:rgba(255,255,255,0.25);font-style:italic;">[ Replace with real client story — name, background, before/after. Keep it honest and specific. ]</p>
+<div class="story-person">
+<div class="story-av">SN</div>
+<div>
+<div class="story-name">Sipho Nkosi</div>
+<div class="story-role">Consultant &amp; MMW Mentor · Kimberley</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ ABOUT ═══ -->
+<section class="section" id="about">
+<div class="about-grid">
+<div class="about-img">
+<!-- REPLACE with: <img src="mark-kotze-headshot.jpg" alt="Mark Kotze" style="width:100%;height:100%;object-fit:cover;object-position:top;"> -->
+<svg fill="none" height="52" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" viewbox="0 0 24 24" width="52"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+<span class="about-img-note">[ MARK'S HEADSHOT GOES HERE ]</span>
+<div class="about-badge">
+<span class="big">P&amp;C</span>
+<span class="sml">Psych &amp;<br/>Comms</span>
+</div>
+</div>
+<div class="about-body">
+<span class="tag">The Coach</span>
+<h2 class="h2">Mark Anthony Rowan Kotze</h2>
+<p class="lead">Born and raised in the historic city of Kimberley, Northern Cape, Mark Kotze is a distinguished public speaker, entrepreneurial mentor, and personal mastery expert. With a background in Psychology and Communication Science, he has spent decades advancing social development, literacy, and leadership across South Africa.</p>
+<blockquote class="about-quote">
+        "Your words shape your world. The moment you take ownership of how you speak — to yourself and to others — everything changes."
+      </blockquote>
+<div class="creds">
+<div class="cred"><div class="cred-dot"></div>Background — Psychology &amp; Communication Science</div>
+<div class="cred"><div class="cred-dot"></div>Founder &amp; Director — Mark My Words TV &amp; Competition</div>
+<div class="cred"><div class="cred-dot"></div>Managed Tsosoloso Community Centre — a decade of youth empowerment programmes</div>
+<div class="cred"><div class="cred-dot"></div>Founder — Mark My Words Consultants, specialising in organisational growth and ethical leadership</div>
+<div class="cred"><div class="cred-dot"></div>Keynote speaker — EDHE Entrepreneurship Development in Higher Education network</div>
+<div class="cred"><div class="cred-dot"></div>Guest speaker — Kimberley Chamber of Commerce (NOCCI)</div>
+<div class="cred"><div class="cred-dot"></div>Radio host &amp; producer — Breakfast programmes and Mark My Words talk show</div>
+<div class="cred"><div class="cred-dot"></div>National TV feature — SABC News spotlighted his Mark My Words initiative</div>
+</div>
+<br/><br/>
+<a class="btn-gold" href="#packages">Work With Mark →</a>
+</div>
+</div>
+</section>
+<!-- ═══ BOOKS ═══ -->
+<section class="section alt" id="books">
+<div class="center">
+<span class="tag">Published Works</span>
+<h2 class="h2">Two Core Books. One Mission.</h2>
+<p class="lead">These two books remain the foundation of Mark Kotze’s personal development work — honest, practical, and built around identity, direction, and breakthrough.</p>
+</div>
+<div class="books-grid">
+<div class="book-card">
+<div class="book-cover">
+<img alt="Arrested without the right to remain silent book cover by Mark Anthony Rowan Kotze" src="mark-kotze-assets/image-01-3ceb4ef6fb.png"/>
+</div>
+<div class="book-body">
+<span class="book-tag">Memoir · Personal Growth</span>
+<h3 class="book-title">Arrested… without the right to remain silent</h3>
+<p class="book-desc">A transparent memoir that explores a very personal journey through some of his life's toughest ordeals and surviving extreme trials. Mark writes with radical honesty about the moments that shaped him — and the choices that changed everything.</p>
+<a class="book-cta" href="#offerings">Explore the Book →</a>
+</div>
+</div>
+<div class="book-card">
+<div class="book-cover">
+<img alt="8 Directions book cover by Mark Anthony Rowan Kotze" src="mark-kotze-assets/image-02-3247f1b365.png"/>
+</div>
+<div class="book-body">
+<span class="book-tag">Self-Help · Personal Mastery</span>
+<h3 class="book-title">8 Directions</h3>
+<p class="book-desc">A practical personal mastery guide designed to help readers make intentional choices and construct reliable lifestyle turnarounds. Eight clear directions. Step-by-step strategies for mental clarity and a life built on purpose — not circumstance.</p>
+<a class="book-cta" href="#offerings">Explore the Book →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ NEW RELEASE SPOTLIGHT ═══ -->
+<section class="campaign-spotlight new-release-spotlight" id="new-release">
+<div class="campaign-topline">New Release · 2026 · Standalone Book Page</div>
+<div class="campaign-grid editorial-new-release-grid">
+<div class="editorial-cover-frame"><img alt="Mistaken Identity book cover by Mark A. R. Kotze" src="mark-kotze-assets/image-03-a28e4c47c0.png"/></div>
+<div class="campaign-copy editorial-release-copy">
+<span class="tag">New · 2026</span>
+<h2>Mistaken Identity<br/><em>31 Day Positive Affirmations</em></h2>
+<div class="affirmation-cloud"><span>Kind</span><span>Unique</span><span>Positive</span><span>Capable</span><span>Focused</span><span>Grounded</span><span>Growing</span><span>Resilient</span><span>Powerful</span><span>Patient</span><span>Enough</span><span>Accepted</span></div>
+<div class="editorial-release-statement"><strong>Speak differently. See yourself differently.</strong><p>A daily companion built to help readers replace limiting internal language with affirmations that strengthen identity, confidence, and emotional direction.</p></div>
+<div class="campaign-meta-row">
+<div class="campaign-meta"><strong>Format:</strong> Daily affirmations</div>
+<div class="campaign-meta"><strong>Length:</strong> 31 days</div>
+<div class="campaign-meta"><strong>Focus:</strong> Identity &amp; self-talk</div>
+<div class="campaign-meta"><strong>Status:</strong> New release</div>
+</div>
+<div class="detail-link-row">
+<a class="detail-link primary" href="#page-affirmations">Open New Book Page</a>
+<a class="detail-link" href="#page-affirmations-breakdown">View 31-Day Breakdown</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section" id="testimonials">
+<span class="tag">Client Testimonials</span>
+<h2 class="h2">In Their Own Words</h2>
+<p class="lead">Two people. Unedited. Real.</p>
+<div class="testi-grid">
+<div class="testi">
+<div class="stars">★★★★★</div>
+<p class="testi-q">"Mark has an extraordinary ability to cut through noise and find the exact thing holding you back. I came in looking for business strategy. I left with a completely new relationship with myself — and the business results followed naturally."</p>
+<div class="testi-author">
+<div class="t-av">KM</div>
+<div>
+<div class="t-name">Kemi Molefe</div>
+<div class="t-role">Business Owner · Kimberley</div>
+</div>
+</div>
+</div>
+<div class="testi">
+<div class="stars">★★★★★</div>
+<p class="testi-q">"I've attended many leadership programmes. None of them reached me the way Mark did. He speaks from lived experience — not a textbook — and that makes every session feel real, urgent, and worth every rand."</p>
+<div class="testi-author">
+<div class="t-av">TS</div>
+<div>
+<div class="t-name">Thabo Sithole</div>
+<div class="t-role">Senior Manager · Upington</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ BOOK MARK SPEAKING ═══ -->
+<section class="speaking-section" id="speaking">
+<div class="speaking-shell">
+<div class="speaking-image-wrap">
+<img alt="Mark Kotze certified life coach and speaker" src="mark-kotze-assets/image-04-cc76c238b3.png"/>
+<div class="speaking-image-badge">
+<strong>Certified Life Coach</strong>
+<span>Clarity. Purpose. Action. Transformation — brought into rooms where people need direction.</span>
+</div>
+</div>
+<div class="speaking-copy">
+<span class="tag">Book Mark To Speak</span>
+<h2 class="h2">Editorial talks for people ready to move from potential to action.</h2>
+<p class="lead">Bring Mark Kotze into your organisation, school, conference, or team environment for a keynote, workshop, coaching talk, or youth empowerment session built around clarity, identity, confidence, purpose, and transformation.</p>
+<div class="speaking-pullquote">
+        “You have more potential than you know. The work is learning how to unlock it.”
+      </div>
+<div class="speaking-mini-list">
+<span>Corporate teams</span>
+<span>Schools &amp; learners</span>
+<span>Leadership events</span>
+<span>Community programmes</span>
+<span>Personal development sessions</span>
+</div>
+<div class="speaking-topics">
+<div class="speaking-topic">
+<strong>Discover Your Path</strong>
+<span>Gain clarity and define the life, direction, or leadership standard you truly want.</span>
+</div>
+<div class="speaking-topic">
+<strong>Align With Purpose</strong>
+<span>Reconnect with what matters most and build confidence around identity and calling.</span>
+</div>
+<div class="speaking-topic">
+<strong>Set Goals &amp; Take Action</strong>
+<span>Create a practical plan that turns motivation into movement and lasting momentum.</span>
+</div>
+<div class="speaking-topic">
+<strong>Transform Your Life</strong>
+<span>Break through limiting patterns and step into a stronger, clearer version of yourself.</span>
+</div>
+</div>
+<div class="speaking-actions">
+<a class="btn-gold" href="#packages">Book Mark For Speaking</a>
+<a class="btn-outline" href="#mmw">View Mark My Words</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ MARK MY WORDS INITIATIVE ═══ -->
+<section class="mmw" id="mmw">
+<div class="mmw-inner">
+<div class="mmw-body">
+<span class="tag">Flagship Initiative</span>
+<h2 class="h2">Mark My Words<br/>Competition</h2>
+<p class="lead mmw-lead">A transparent memoir that explores a very personal journey through some of his life's toughest ordeals and surviving extreme trials. Mark writes with radical honesty about the moments that shaped him — and the choices that changed everything.</p>
+<a class="mmw-link" href="https://www.markmywordstv.co.za/" target="_blank">
+        Visit markmywordstv.co.za →
+      </a>
+</div>
+<div class="mmw-stats">
+<div class="mmw-stat"><span class="n">R30K</span><span class="l">Cash Prize Pool</span></div>
+<div class="mmw-stat"><span class="n">Top 20</span><span class="l">Finalists Selected</span></div>
+<div class="mmw-stat"><span class="n">SABC</span><span class="l">National Coverage</span></div>
+<div class="mmw-stat"><span class="n">9 Provinces</span><span class="l">Expansion Vision</span></div>
+</div>
+</div>
+</section>
+<!-- ═══ PACKAGES ═══ -->
+<section class="section" id="packages">
+<div class="center">
+<span class="tag">Investment</span>
+<h2 class="h2">Choose Your Path</h2>
+<p class="lead">Every package is built around real results — not hours in a room. Choose the level that matches where you are and where you need to go.</p>
+</div>
+<div class="pkg-grid">
+<div class="pkg teen-highlight">
+<div class="pkg-badge">Featured Youth Offer</div>
+<div class="pkg-img">
+<img alt="Teens and Learners True Identity Programme package" src="mark-kotze-assets/image-05-2a47126f62.png"/>
+</div>
+<div class="pkg-tier">Teens &amp; Learners</div>
+<h3 class="pkg-name">True Identity Programme</h3>
+<p class="pkg-desc">A guided programme for teens and learners in Grade 8–12, designed to help them move from confusion to clarity and discover who they truly are. Bookings are strictly under parental supervision.</p>
+<div class="pkg-price">
+<span class="pkg-cur">R</span>
+<span class="pkg-amt">740</span>
+<span class="pkg-per">/ package</span>
+</div>
+<ul class="pkg-feats">
+<li><span class="chk">✓</span>Both books: <em>Mistaken Identity</em> &amp; the <em>Identity Mapping Workbook</em></li>
+<li><span class="chk">✓</span>4 x 1-hour sessions</li>
+<li><span class="chk">✓</span>Personalised coaching &amp; identity mapping</li>
+<li><span class="chk">✓</span>Optional ongoing mentoring: R400 / month</li>
+<li><span class="chk">✓</span>Optional peer group sessions: R300 / month</li>
+</ul>
+<a class="pkg-btn" href="#page-true-identity-programme">Open Dedicated Programme Page</a>
+</div>
+<div class="pkg featured">
+<div class="pkg-badge">Most Popular</div>
+<div class="pkg-img">
+<img alt="Exclusive Transformation Programme package" src="mark-kotze-assets/image-06-3fd4f8be82.png"/>
+</div>
+<div class="pkg-tier">Premium</div>
+<h3 class="pkg-name">Exclusive Transformation Programme</h3>
+<p class="pkg-desc">A deeper transformation journey for people ready to do more than change their lives — this programme is built to help them transform it with structure, support, and momentum.</p>
+<div class="pkg-price">
+<span class="pkg-cur">R</span>
+<span class="pkg-amt">2550</span>
+<span class="pkg-per">/ programme</span>
+</div>
+<ul class="pkg-feats">
+<li><span class="chk">✓</span><em>Mistaken Identity</em> book included</li>
+<li><span class="chk">✓</span><em>Identity Mapping Workbook</em> included</li>
+<li><span class="chk">✓</span>6 online sessions</li>
+<li><span class="chk">✓</span>Exclusive completion breakfast</li>
+<li><span class="chk">✓</span>Complimentary gift: <em>31 Day Affirmations</em> + bring a plus one</li>
+</ul>
+<a class="pkg-btn" href="#">Start Your Breakthrough</a>
+</div>
+<div class="pkg">
+<div class="pkg-img">
+<img alt="Group Session Experience package" src="mark-kotze-assets/image-07-ecc4dd2eb7.png"/>
+</div>
+<div class="pkg-tier">Group</div>
+<h3 class="pkg-name">Group Session Experience</h3>
+<p class="pkg-desc">A structured group journey built for people who want support, guidance, and powerful transformation frameworks — with less pressure for constant interaction.</p>
+<div class="pkg-price">
+<span class="pkg-cur">R</span>
+<span class="pkg-amt">1890</span>
+<span class="pkg-per">/ programme</span>
+</div>
+<ul class="pkg-feats">
+<li><span class="chk">✓</span>Guided sessions led by Mark</li>
+<li><span class="chk">✓</span>Minimal group interaction</li>
+<li><span class="chk">✓</span>Powerful frameworks for personal growth</li>
+<li><span class="chk">✓</span>4 online sessions</li>
+<li><span class="chk">✓</span>Graduates qualify for an exclusive 1-on-1 experience</li>
+</ul>
+<a class="pkg-btn" href="#">Join the Group Experience</a>
+</div>
+</div>
+</section>
+<!-- ═══ TRUE IDENTITY FULL FUNNEL SPOTLIGHT ═══ -->
+<section class="campaign-spotlight" id="true-identity">
+<div class="campaign-topline">Featured Campaign · Grade 8–12 · Parent-Supervised Bookings</div>
+<div class="campaign-grid">
+<div class="campaign-copy">
+<span class="tag">True Identity Programme</span>
+<h2>From Confusion.<br/><em>To Clarity.</em></h2>
+<p>This is no longer just another package on the page. The True Identity Programme is now treated as a full campaign experience for teens and learners — built around identity, confidence, guided reflection, and structured coaching support.</p>
+<div class="campaign-meta-row">
+<div class="campaign-meta"><strong>Includes:</strong> 2 books</div>
+<div class="campaign-meta"><strong>Sessions:</strong> 4 x 1-hour</div>
+<div class="campaign-meta"><strong>Audience:</strong> Grade 8–12</div>
+<div class="campaign-meta"><strong>Bookings:</strong> Parent-supervised</div>
+</div>
+<div class="mega-price-card"><strong>R740</strong><span>Main programme package</span></div>
+<div class="detail-link-row">
+<a class="detail-link primary" href="#page-true-identity-programme">Open Dedicated Campaign Page</a>
+<a class="detail-link" href="#page-true-identity-breakdown">View Full Breakdown</a>
+</div>
+</div>
+<div aria-label="HTML recreation of the True Identity programme poster" class="poster-html">
+<div class="poster-head">Teens &amp; Learners Programme</div>
+<div class="poster-hero">
+<div class="poster-panel left">
+<span class="small-title">Discover Your</span>
+<h3>True<br/>Identity</h3>
+<p><strong>Who you are is your power.</strong><br/>Let’s find it together.</p>
+<div class="poster-seal">Bookings<br/>Strictly by<br/>Parental<br/>Supervision</div>
+</div>
+<div class="poster-panel right">
+<span class="small-title">Special Offer</span>
+<h3>Grade<br/>8–12</h3>
+<p>A focused youth programme created to move learners from uncertainty into a clearer sense of identity, confidence, and direction.</p>
+</div>
+</div>
+<div class="poster-from-to"><span>From Confusion</span><span>To Clarity</span></div>
+<div class="poster-package">
+<div class="poster-books">
+<div class="poster-book-mini">Mistaken<br/>Identity</div>
+<div class="poster-book-mini workbook">Identity<br/>Mapping<br/>Workbook</div>
+</div>
+<div class="poster-includes">
+<h4>Package Includes</h4>
+<div class="poster-inc">
+<div><b>Both Books</b>Mistaken Identity &amp; Identity Mapping Workbook</div>
+<div><b>4 x 1-Hour Sessions</b>Personalised coaching &amp; identity mapping</div>
+</div>
+</div>
+</div>
+<div class="poster-price-band"><span>Main Package</span><strong>R740</strong></div>
+<div class="poster-support">
+<div class="poster-support-card"><h5>Ongoing Mentoring</h5><p>Individual guidance and accountability to help learners grow and stay on track.</p><strong>R400 / month</strong></div>
+<div class="poster-support-card"><h5>Peer Group Sessions</h5><p>Connect with other teens on the same journey. Learn, share, and grow together.</p><strong>R300 / month</strong></div>
+</div>
+</div>
+</div>
+<div class="campaign-strip">
+<div><b>Step 01</b>Read the identity story and begin the conversation.</div>
+<div><b>Step 02</b>Map identity, behaviour, goals, and direction in the workbook.</div>
+<div><b>Step 03</b>Attend four guided 1-hour sessions with Mark.</div>
+<div><b>Step 04</b>Continue with mentoring or peer group support if needed.</div>
+</div>
+</section>
+<!-- ═══ CTA BANNER ═══ -->
+<div class="cta-section">
+<h2>Your Words Already<br/>Have Power.</h2>
+<p>The only question is whether you're using them intentionally. One conversation is all it takes to find out.</p>
+<a class="btn-dark" href="#packages">Book a Strategy Session</a>
+</div>
+<!-- ═══ TRUE IDENTITY SUITE & GUIDED RESOURCES ═══ -->
+<section class="section alt" id="offerings">
+<div class="center">
+<span class="tag">True Identity Funnel</span>
+<h2 class="h2">The Programme, The Books, The Support</h2>
+<p class="lead">Start with the full True Identity Programme, then explore the books, workbook, guided sessions, and support options that help learners move from confusion to clarity.</p>
+</div>
+<div class="offerings-grid" id="guidedResourcesGrid">
+<div class="offering-card identity-suite-feature">
+<div class="offering-image">
+<img alt="True Identity Teens and Learners Programme" src="mark-kotze-assets/image-05-2a47126f62.png"/>
+</div>
+<div class="offering-body">
+<span class="item-badge">Full Campaign Experience</span>
+<span class="offering-kicker">Teens &amp; Learners · Grade 8–12</span>
+<h3 class="offering-title">True Identity Programme</h3>
+<div class="offering-price">R740</div>
+<p class="offering-desc">A full youth development offer built around the Mistaken Identity book, Identity Mapping Workbook, four guided sessions, and optional follow-up support. This is the main pathway from confusion to clarity.</p>
+<div class="funnel-steps">
+<div class="funnel-step"><b>Book</b>Mistaken Identity introduces the story and identity conversation.</div>
+<div class="funnel-step"><b>Workbook</b>Identity Mapping turns reflection into written structure.</div>
+<div class="funnel-step"><b>Sessions</b>4 x 1-hour guided sessions bring the process to life.</div>
+</div>
+<div class="detail-link-row">
+<a class="detail-link primary" href="#page-true-identity-programme">Open Dedicated Campaign Page</a>
+<a class="detail-link" href="#page-true-identity-breakdown">Open Full Multi-Page Breakdown</a>
+</div>
+</div>
+</div>
+<div class="explore-more-panel" id="explore-more-resources">
+<span class="tag">Explore More</span>
+<h3>Unlock the full book, workbook, course and support pathway.</h3>
+<p>The full resource list is intentionally hidden at first so the visitor understands the main True Identity offer before opening the attached books, workbook, sessions and support options.</p>
+<button aria-expanded="false" class="explore-more-btn" id="exploreMoreResourcesBtn" type="button">Explore More</button>
+</div>
+<div class="resources-reveal-note">Full attached resource pathway now unlocked</div>
+<div class="offering-card resource-card-emphasis gated-resource">
+<div class="offering-image">
+<img alt="Mistaken Identity book" src="mark-kotze-assets/image-03-a28e4c47c0.png"/>
+</div>
+<div class="offering-body">
+<span class="offering-kicker">Item 01 · Book</span>
+<h3 class="offering-title">Mistaken Identity</h3>
+<p class="offering-desc">The story-led foundation of the programme. It opens the conversation around identity, confusion, choices, and personal breakthrough.</p>
+<a class="offering-btn" href="#page-true-identity-mistaken-identity">Open Book Page</a>
+</div>
+</div>
+<div class="offering-card resource-card-emphasis gated-resource">
+<div class="offering-image">
+<img alt="Mistaken Identity Identity Mapping Workbook" src="mark-kotze-assets/image-08-ac5fcc1323.png"/>
+</div>
+<div class="offering-body">
+<span class="offering-kicker">Item 02 · Workbook</span>
+<h3 class="offering-title">Identity Mapping Workbook</h3>
+<p class="offering-desc">The practical part of the funnel. Learners use this workbook to map who they are, where they are, and what direction they need to move toward.</p>
+<a class="offering-btn" href="#page-true-identity-workbook">Open Workbook Page</a>
+</div>
+</div>
+<div class="offering-card resource-card-emphasis gated-resource">
+<div class="offering-image">
+<img alt="True Identity 4 one-hour sessions" src="mark-kotze-assets/image-05-2a47126f62.png"/>
+</div>
+<div class="offering-body">
+<span class="offering-kicker">Item 03 · Guided Course</span>
+<h3 class="offering-title">4 x 1-Hour Identity Sessions</h3>
+<p class="offering-desc">The live guidance layer of the programme: personalised coaching and identity mapping with Mark, structured for clarity and confidence.</p>
+<a class="offering-btn" href="#page-true-identity-guided-sessions">Open Sessions Page</a>
+</div>
+</div>
+<div class="offering-card gated-resource">
+<div class="offering-image">
+<img alt="Mistaken Identity 31 Day Positive Affirmations" src="mark-kotze-assets/image-03-a28e4c47c0.png"/>
+</div>
+<div class="offering-body">
+<span class="item-badge">Highlighted New Release</span>
+<span class="offering-kicker">New · 2026</span>
+<h3 class="offering-title">Mistaken Identity: 31 Day Positive Affirmations</h3>
+<p class="offering-desc">A daily affirmation resource designed to help readers speak with intention, grow in confidence, and reinforce a healthier, stronger personal identity over 31 days.</p>
+<a class="offering-btn" href="#page-affirmations">Open New Release Page</a>
+</div>
+</div>
+<div class="offering-card gated-resource">
+<div class="offering-body">
+<span class="offering-kicker">Support Option</span>
+<h3 class="offering-title">Ongoing Mentoring</h3>
+<div class="offering-price">R400 / month</div>
+<p class="offering-desc">Individual guidance and accountability for learners who need continued support after the main programme.</p>
+<a class="offering-btn" href="#page-true-identity-mentoring">Open Mentoring Page</a>
+</div>
+</div>
+<div class="offering-card gated-resource">
+<div class="offering-body">
+<span class="offering-kicker">Support Option</span>
+<h3 class="offering-title">Peer Group Sessions</h3>
+<div class="offering-price">R300 / month</div>
+<p class="offering-desc">Group support for teens on the same journey — built to help them learn, share, and grow together.</p>
+<a class="offering-btn" href="#page-true-identity-peer-groups">Open Peer Group Page</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ═══ FOOTER ═══ -->
+<footer>
+<div class="f-logo">Mark<span>.</span>Kotze</div>
+<div class="f-links">
+<a href="#about">About</a>
+<a href="#books">Books</a>
+<a href="#speaking">Speaking</a>
+<a href="#page-true-identity-programme">Programme</a>
+<a href="#mmw">Mark My Words</a>
+<a href="#packages">Coaching</a>
+<a href="#">Contact</a>
+</div>
+<div class="f-copy">© 2026 Mark Kotze. All rights reserved.</div>
+</footer>
+</main>
+<main class="route-page" id="page-true-identity-programme">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="campaign-spotlight" id="true-identity-programme-page">
+<div class="campaign-topline">Dedicated Campaign Page · Grade 8–12 · Parent-Supervised Bookings</div>
+<div class="campaign-grid">
+<div class="campaign-copy">
+<a class="route-breadcrumb" href="#home">← Main Site</a>
+<span class="tag">True Identity Programme</span>
+<h2>Discover Your<br/><em>True Identity.</em></h2>
+<p>A focused programme for teens and learners in Grade 8–12, created to help young people discover who they are, build confidence, and move with greater clarity. Bookings are strictly guided by parental supervision.</p>
+<div class="campaign-meta-row"><div class="campaign-meta"><strong>Audience:</strong> Grade 8–12</div><div class="campaign-meta"><strong>Includes:</strong> 2 books</div><div class="campaign-meta"><strong>Sessions:</strong> 4 x 1-hour</div><div class="campaign-meta"><strong>Booking:</strong> Parental supervision</div></div>
+<div class="mega-price-card"><strong>R740</strong><span>Main programme package</span></div>
+<div class="detail-link-row"><a class="detail-link primary" href="#page-true-identity-breakdown">Open Full Breakdown</a><a class="detail-link" href="#page-true-identity-mistaken-identity">Start With The Book</a></div>
+<div class="route-subnav"><a class="route-pill-link" href="#page-true-identity-workbook">Workbook</a><a class="route-pill-link" href="#page-true-identity-guided-sessions">Guided Sessions</a><a class="route-pill-link" href="#page-true-identity-mentoring">Mentoring</a><a class="route-pill-link" href="#page-true-identity-peer-groups">Peer Groups</a></div>
+</div>
+<div aria-label="HTML recreation of the True Identity programme poster" class="poster-html">
+<div class="poster-head">Teens &amp; Learners Programme</div>
+<div class="poster-hero">
+<div class="poster-panel left">
+<span class="small-title">Discover Your</span>
+<h3>True<br/>Identity</h3>
+<p><strong>Who you are is your power.</strong><br/>Let’s find it together.</p>
+<div class="poster-seal">Bookings<br/>Strictly by<br/>Parental<br/>Supervision</div>
+</div>
+<div class="poster-panel right">
+<span class="small-title">Special Offer</span>
+<h3>Grade<br/>8–12</h3>
+<p>A focused youth programme created to move learners from uncertainty into a clearer sense of identity, confidence, and direction.</p>
+</div>
+</div>
+<div class="poster-from-to"><span>From Confusion</span><span>To Clarity</span></div>
+<div class="poster-package">
+<div class="poster-books"><div class="poster-book-mini">Mistaken<br/>Identity</div><div class="poster-book-mini workbook">Identity<br/>Mapping<br/>Workbook</div></div>
+<div class="poster-includes"><h4>Package Includes</h4><div class="poster-inc"><div><b>Both Books</b>Mistaken Identity &amp; Identity Mapping Workbook</div><div><b>4 x 1-Hour Sessions</b>Personalised coaching &amp; identity mapping</div></div></div>
+</div>
+<div class="poster-price-band"><span>Main Package</span><strong>R740</strong></div>
+<div class="poster-support"><div class="poster-support-card"><h5>Ongoing Mentoring</h5><p>Individual guidance and accountability to help learners grow and stay on track.</p><strong>R400 / month</strong></div><div class="poster-support-card"><h5>Peer Group Sessions</h5><p>Connect with other teens on the same journey. Learn, share, and grow together.</p><strong>R300 / month</strong></div></div>
+</div>
+</div>
+</section>
+<section class="section alt">
+<div class="center"><span class="tag">Programme Journey</span><h2 class="h2">One Programme. A Complete Guided Journey.</h2><p class="lead">The journey begins with the main programme, then continues through the full breakdown, attached books, guided sessions, and ongoing support options.</p></div>
+<div class="route-flow"><div><b>01 · Main Offer</b>True Identity Programme introduces the complete youth offer.</div><div><b>02 · Breakdown</b>The full page explains what parents and learners receive.</div><div><b>03 · Attached Items</b>Each resource gives parents and learners a clearer view of what is included and how it supports the journey.</div><div><b>04 · Support</b>Mentoring and peer groups continue the journey after the main programme.</div></div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Campaign Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-breakdown">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="center"><span class="tag">Full Breakdown</span><h2 class="h2">What The R740 Package Includes</h2><p class="lead">A clear breakdown of everything included in the programme, from the books and workbook to the coaching sessions and support options.</p></div>
+<div class="route-page-card-grid"><div class="route-page-card gold"><h3>Main Package</h3><p><strong>R740</strong> includes both books and 4 x 1-hour personalised coaching and identity mapping sessions.</p></div><div class="route-page-card"><h3>For Learners</h3><p>Designed for Grade 8–12 learners who need clarity, confidence, direction, and structured support.</p></div><div class="route-page-card"><h3>Parent-Supervised</h3><p>Bookings are strictly handled under parental supervision to keep the programme safe, clear, and professionally managed.</p></div></div>
+<div class="route-flow"><div><b>Book</b>Mistaken Identity opens the story-led conversation.</div><div><b>Workbook</b>Identity Mapping turns the conversation into written reflection.</div><div><b>Sessions</b>Four one-hour sessions guide the learner through the process.</div><div><b>Support</b>Mentoring and peer groups are available monthly.</div></div>
+</section>
+<section class="section alt"><div class="center"><span class="tag">Continue The Funnel</span><h2 class="h2">Open Each Attached Item</h2></div><div class="detail-link-row" style="justify-content:center"><a class="detail-link primary" href="#page-true-identity-mistaken-identity">Book Page</a><a class="detail-link" href="#page-true-identity-workbook">Workbook Page</a><a class="detail-link" href="#page-true-identity-guided-sessions">Sessions Page</a><a class="detail-link" href="#page-true-identity-mentoring">Mentoring</a><a class="detail-link" href="#page-true-identity-peer-groups">Peer Groups</a></div></section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Full Breakdown</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-mistaken-identity">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="route-split">
+<div class="route-page-image"><img alt="Mistaken Identity" src="mark-kotze-assets/image-03-a28e4c47c0.png"/></div>
+<div><span class="tag">Item 01 · Book</span><h2 class="h2">Mistaken Identity</h2><p class="lead">The story-led foundation of the programme. This page positions the book as the opening point of the identity conversation — the part that helps learners understand the problem before they begin mapping a new direction.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Connected To The Programme</h3><p>This item is not isolated. It sits inside the True Identity journey and supports the learner’s movement from confusion to clarity.</p></div><div class="route-page-card"><h3>Why It Matters</h3><p>It gives the offer more depth, more trust, and a clearer reason for parents and learners to continue through the full funnel.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link" href="#page-true-identity-breakdown">Full Breakdown</a><a class="detail-link primary" href="#page-true-identity-workbook">Next Page</a></div></div>
+</div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Book Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-workbook">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="route-split">
+<div class="route-page-image"><img alt="Identity Mapping Workbook" src="mark-kotze-assets/image-08-ac5fcc1323.png"/></div>
+<div><span class="tag">Item 02 · Workbook</span><h2 class="h2">Identity Mapping Workbook</h2><p class="lead">The workbook turns reflection into structure. It gives learners space to map who they are, what they are carrying, and what direction they need to move toward.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Connected To The Programme</h3><p>This item is not isolated. It sits inside the True Identity journey and supports the learner’s movement from confusion to clarity.</p></div><div class="route-page-card"><h3>Why It Matters</h3><p>It gives the offer more depth, more trust, and a clearer reason for parents and learners to continue through the full funnel.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link" href="#page-true-identity-breakdown">Full Breakdown</a><a class="detail-link primary" href="#page-true-identity-guided-sessions">Next Page</a></div></div>
+</div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Workbook Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-guided-sessions">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="route-split">
+<div class="route-page-image"><img alt="4 x 1-Hour Identity Sessions" src="mark-kotze-assets/image-05-2a47126f62.png"/></div>
+<div><span class="tag">Item 03 · Guided Course</span><h2 class="h2">4 x 1-Hour Identity Sessions</h2><p class="lead">The guided session layer brings the programme to life. Mark works through the identity mapping process with the learner through four structured one-hour sessions.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Connected To The Programme</h3><p>This item is not isolated. It sits inside the True Identity journey and supports the learner’s movement from confusion to clarity.</p></div><div class="route-page-card"><h3>Why It Matters</h3><p>It gives the offer more depth, more trust, and a clearer reason for parents and learners to continue through the full funnel.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link" href="#page-true-identity-breakdown">Full Breakdown</a><a class="detail-link primary" href="#page-true-identity-mentoring">Next Page</a></div></div>
+</div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Guided Sessions Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-mentoring">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="route-split">
+<div class="route-page-image"><img alt="Ongoing Mentoring" src="mark-kotze-assets/image-05-2a47126f62.png"/></div>
+<div><span class="tag">Support Option</span><h2 class="h2">Ongoing Mentoring</h2><p class="lead">Individual guidance and accountability for learners who need continued support after the main programme. This is positioned as a monthly support layer.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Connected To The Programme</h3><p>This item is not isolated. It sits inside the True Identity journey and supports the learner’s movement from confusion to clarity.</p></div><div class="route-page-card"><h3>Why It Matters</h3><p>It gives the offer more depth, more trust, and a clearer reason for parents and learners to continue through the full funnel.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link" href="#page-true-identity-breakdown">Full Breakdown</a><a class="detail-link primary" href="#page-true-identity-peer-groups">Next Page</a></div></div>
+</div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Mentoring Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-true-identity-peer-groups">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark">
+<a class="route-breadcrumb" href="#page-true-identity-programme">← Back to Programme</a>
+<div class="route-split">
+<div class="route-page-image"><img alt="Peer Group Sessions" src="mark-kotze-assets/image-05-2a47126f62.png"/></div>
+<div><span class="tag">Support Option</span><h2 class="h2">Peer Group Sessions</h2><p class="lead">A group support option for teens on the same journey. It gives learners a space to connect, learn, share, and grow together with guided structure.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Connected To The Programme</h3><p>This item is not isolated. It sits inside the True Identity journey and supports the learner’s movement from confusion to clarity.</p></div><div class="route-page-card"><h3>Why It Matters</h3><p>It gives the offer more depth, more trust, and a clearer reason for parents and learners to continue through the full funnel.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link" href="#page-true-identity-breakdown">Full Breakdown</a><a class="detail-link primary" href="#page-true-identity-programme">Next Page</a></div></div>
+</div>
+</section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>True Identity Programme · Peer Group Page</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-affirmations">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="campaign-spotlight new-release-spotlight">
+<div class="campaign-topline">Standalone New Book Page · 2026 · Mistaken Identity Companion</div>
+<div class="campaign-grid editorial-new-release-grid">
+<div class="editorial-cover-frame editorial-route-cover"><img alt="Mistaken Identity book cover by Mark A. R. Kotze" src="mark-kotze-assets/image-03-a28e4c47c0.png"/></div>
+<div class="campaign-copy editorial-release-copy">
+<a class="route-breadcrumb" href="#home">← Main Site</a>
+<span class="tag">New · 2026</span>
+<h2>Mistaken Identity<br/><em>31 Day Positive Affirmations</em></h2>
+<div class="affirmation-cloud"><span>Kind</span><span>Unique</span><span>Positive</span><span>Capable</span><span>Focused</span><span>Grounded</span><span>Growing</span><span>Resilient</span><span>Powerful</span><span>Patient</span><span>Enough</span><span>Accepted</span></div>
+<div class="editorial-release-statement"><strong>Speak differently. See yourself differently.</strong><p>A daily companion built to help readers replace limiting internal language with affirmations that strengthen identity, confidence, and emotional direction.</p></div>
+<div class="campaign-meta-row"><div class="campaign-meta"><strong>Format:</strong> Daily affirmations</div><div class="campaign-meta"><strong>Length:</strong> 31 days</div><div class="campaign-meta"><strong>Focus:</strong> Identity &amp; self-talk</div><div class="campaign-meta"><strong>Status:</strong> New release</div></div>
+<div class="detail-link-row"><a class="detail-link primary" href="#page-affirmations-breakdown">Open 31-Day Breakdown</a><a class="detail-link" href="#page-affirmations-daily-practice">Daily Practice Page</a><a class="detail-link" href="#page-affirmations-identity-support">Identity Support</a></div>
+</div>
+</div>
+</section>
+<section class="section alt"><div class="center"><span class="tag">New Release Spotlight</span><h2 class="h2">A Daily Companion For Identity And Confidence.</h2><p class="lead">The 31 Day Positive Affirmations book stands as a focused daily companion within the wider Mistaken Identity journey, helping readers strengthen their self-talk and personal identity one day at a time.</p></div></section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>Mistaken Identity · 31 Day Affirmations</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-affirmations-breakdown">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark"><a class="route-breadcrumb" href="#page-affirmations">← Back to New Book Page</a><div class="center"><span class="tag">31-Day Breakdown</span><h2 class="h2">How The Affirmation Journey Works</h2><p class="lead">This page explains the structure: one daily affirmation rhythm, repeated over 31 days, to build stronger self-talk and identity confidence.</p></div><div class="route-flow"><div><b>Week 1</b>Awareness of internal language and limiting identity labels.</div><div><b>Week 2</b>Replacing destructive self-talk with stronger words.</div><div><b>Week 3</b>Building confidence, direction, patience, and resilience.</div><div><b>Week 4+</b>Reinforcing the identity the reader is choosing to live from.</div></div><div class="detail-link-row" style="justify-content:center;margin-top:32px"><a class="detail-link primary" href="#page-affirmations-daily-practice">Open Daily Practice</a><a class="detail-link" href="#page-affirmations-identity-support">Open Identity Support</a></div></section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>31 Day Affirmations · Breakdown</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-affirmations-daily-practice">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark"><a class="route-breadcrumb" href="#page-affirmations">← Back to New Book Page</a><div class="route-split"><div><div class="editorial-cover-frame"><img alt="Mistaken Identity book cover by Mark A. R. Kotze" src="mark-kotze-assets/image-03-a28e4c47c0.png"/></div></div><div><span class="tag">Daily Practice</span><h2 class="h2">One Day. One Statement. One Shift.</h2><p class="lead">This page explains how the book is used in practice: read the affirmation, reflect on it, repeat it, and carry it into the day. The goal is not noise — it is repetition with intention.</p><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Read</h3><p>Start with the affirmation for the day.</p></div><div class="route-page-card"><h3>Reflect</h3><p>Ask what old identity statement it replaces.</p></div><div class="route-page-card"><h3>Repeat</h3><p>Use it until the new language starts feeling normal.</p></div></div><div class="detail-link-row" style="margin-top:28px"><a class="detail-link primary" href="#page-affirmations-identity-support">Next: Identity Support</a></div></div></div></section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>31 Day Affirmations · Daily Practice</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<main class="route-page" id="page-affirmations-identity-support">
+<nav>
+<a class="nav-logo" href="#home">Mark<span>.</span>Kotze</a>
+<div class="nav-links">
+<a href="#home">Main Site</a>
+<a href="#page-true-identity-programme">True Identity</a>
+<a href="#page-affirmations">31 Day Affirmations</a>
+<a href="#page-true-identity-breakdown">Breakdown</a>
+</div>
+<a class="nav-cta" href="#home">Back Home</a>
+</nav>
+<div class="route-page-shell">
+<section class="section dark"><a class="route-breadcrumb" href="#page-affirmations">← Back to New Book Page</a><div class="center"><span class="tag">Identity Support</span><h2 class="h2">How It Connects To Mistaken Identity</h2><p class="lead">Mistaken Identity introduces the message, the workbook helps map the journey, and 31 Day Positive Affirmations supports the daily language that shapes confidence and self-belief.</p></div><div class="route-page-card-grid"><div class="route-page-card gold"><h3>Mistaken Identity</h3><p>The story and central message.</p></div><div class="route-page-card"><h3>Identity Mapping Workbook</h3><p>The guided reflection and mapping process.</p></div><div class="route-page-card"><h3>31 Day Positive Affirmations</h3><p>The daily reinforcement tool for self-talk and confidence.</p></div></div><div class="detail-link-row" style="justify-content:center;margin-top:32px"><a class="detail-link primary" href="#page-true-identity-programme">Open True Identity Programme</a><a class="detail-link" href="#home">Back To Main Site</a></div></section>
+<footer class="route-footer"><div>Mark<span style="color:#C9A227">.</span>Kotze</div><div>31 Day Affirmations · Identity Support</div><a href="#home">Back to main site</a></footer>
+</div>
+</main>
+<script>
+(function(){
+  const routeIds = new Set([
+    'home',
+    'page-true-identity-programme','page-true-identity-breakdown','page-true-identity-mistaken-identity','page-true-identity-workbook','page-true-identity-guided-sessions','page-true-identity-mentoring','page-true-identity-peer-groups',
+    'page-affirmations','page-affirmations-breakdown','page-affirmations-daily-practice','page-affirmations-identity-support'
+  ]);
+  function initExploreMoreGate(){
+    const grid = document.getElementById('guidedResourcesGrid');
+    const btn = document.getElementById('exploreMoreResourcesBtn');
+    if(!grid || !btn) return;
+    btn.addEventListener('click', function(){
+      const expanded = grid.classList.toggle('resources-expanded');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.textContent = expanded ? 'Hide Extra Resources' : 'Explore More';
+      if(expanded){
+        const note = grid.querySelector('.resources-reveal-note');
+        if(note) note.scrollIntoView({behavior:'smooth', block:'center'});
+      }
+    });
+  }
+
+  function showRoute(){
+    const raw = (window.location.hash || '#home').replace('#','');
+    const target = routeIds.has(raw) ? raw : 'home';
+    document.querySelectorAll('.route-page').forEach(page => page.classList.toggle('route-active', page.id === target));
+    if(target === 'home'){
+      requestAnimationFrame(function(){
+        if(raw && raw !== 'home'){
+          const anchor = document.getElementById(raw);
+          if(anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
+          else window.scrollTo({top:0, behavior:'smooth'});
+        } else {
+          window.scrollTo({top:0, behavior:'smooth'});
+        }
+      });
+    } else {
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+  window.addEventListener('hashchange', showRoute);
+  window.addEventListener('DOMContentLoaded', function(){ initExploreMoreGate(); showRoute(); });
+  showRoute();
+})();
+</script>
+</body>
+</html>
