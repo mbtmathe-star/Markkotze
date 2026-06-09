@@ -460,6 +460,7 @@ nav {
   background: rgba(5,13,23,0.28);
   pointer-events: none;
 }
+.speaking-image-wrap picture { display: block; width: 100%; }
 .speaking-image-wrap img {
   width: 100%;
   height: 100%;
@@ -1483,10 +1484,11 @@ footer {
 .book-shop-more { font-size: 13px; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,162,39,0.4); padding-bottom: 2px; transition: border-color 0.2s; white-space: nowrap; }
 .book-shop-more:hover { border-color: var(--gold); }
 /* ── MMW full-width override ── */
-.mmw-full { max-width: 860px; margin: 0 auto; }
-.mmw-bullets { list-style: none; padding: 0; margin: 28px 0 36px; display: flex; flex-direction: column; gap: 12px; }
-.mmw-bullets li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-dim); font-size: 15px; line-height: 1.5; }
-.mmw-bullets li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.mmw-full { width: 100%; }
+.mmw-bullets { list-style: none; padding: 0; margin: 32px 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 48px; }
+.mmw-bullets li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-dim); font-size: 15px; line-height: 1.6; }
+.mmw-bullets li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+@media (max-width: 720px) { .mmw-bullets { grid-template-columns: 1fr; } }
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .nav-links { display: none; }
@@ -1667,18 +1669,22 @@ footer {
 <!-- ═══ NEW RELEASE SPOTLIGHT ═══ -->
 <section class="campaign-spotlight new-release-spotlight" id="new-release">
 <div class="campaign-topline">Daily Practice · Identity Work · Out Now 2026</div>
+<div style="text-align:center;margin-bottom:48px;">
+<span class="tag">New Book · 2026</span>
+<h2 class="h2" style="font-size:clamp(42px,7vw,86px);line-height:1.05;letter-spacing:-1px;margin-bottom:18px;">Mistaken Identity</h2>
+<p style="color:var(--text-dim);font-size:17px;line-height:1.75;max-width:640px;margin:0 auto;">31 days of intentional, identity-building affirmations — one each day — to replace the internal voice you never chose with language that builds something stronger.</p>
+</div>
 <div class="campaign-grid editorial-new-release-grid">
 <div class="editorial-cover-frame"><picture><source type="image/webp" srcset="mark-kotze-assets/webp/mistaken-identity-cover-sm.webp 200w, mark-kotze-assets/webp/mistaken-identity-cover.webp 320w, mark-kotze-assets/webp/mistaken-identity-cover-2x.webp 640w" sizes="(max-width:600px) 200px, 320px"><img loading="lazy" alt="Mistaken Identity 31 Day Positive Affirmations book cover by Mark Kotze" src="mark-kotze-assets/image-03-a28e4c47c0.png" width="320" height="563"/></picture></div>
-<div class="campaign-copy editorial-release-copy">
-<span class="tag">New Book · 2026</span>
-<h2>31 days to rewrite<br/><em>the story you tell yourself.</em></h2>
-<div class="editorial-release-statement"><strong>Most people carry an internal voice they never chose.</strong><p>Built from old wounds, other people's words, and patterns that have outlived their purpose. This book gives you 31 days of intentional, identity-building affirmations — one a day — until the language you use about yourself begins to match who you are actually becoming.</p></div>
-<div class="campaign-meta-row">
-<div class="campaign-meta"><strong>31 Daily Affirmations</strong>One for each day — written to build momentum over time</div>
-<div class="campaign-meta"><strong>Identity &amp; Self-Worth</strong>Rooted in who you are, not who you were told to be</div>
-<div class="campaign-meta"><strong>Written for Anyone</strong>Ready to stop letting the past define the present</div>
-</div>
-<div style="margin-top:22px;">
+<div class="campaign-copy editorial-release-copy" style="border-left:1px solid rgba(201,162,39,0.2);padding-left:48px;">
+<strong style="display:block;color:var(--white);font-size:16px;margin-bottom:20px;">Most people carry an internal voice they never chose.</strong>
+<ul class="mmw-bullets" style="margin-top:0;grid-template-columns:1fr;">
+<li>31 carefully crafted daily affirmations for identity and confidence</li>
+<li>Replaces the voice built from old wounds and inherited patterns</li>
+<li>Companion to the full Mistaken Identity programme and journey</li>
+<li>Written for anyone ready to stop letting the past define the present</li>
+</ul>
+<div style="text-align:center;margin-top:28px;">
 <a href="#page-affirmations" style="font-size:13px;color:var(--gold);text-decoration:none;letter-spacing:0.3px;display:inline-block;border-bottom:1px solid rgba(201,162,39,0.4);padding-bottom:2px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,162,39,0.4)'">View more</a>
 </div>
 </div>
