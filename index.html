@@ -418,7 +418,7 @@ nav {
 
 /* ── BOOK MARK SPEAKING ── */
 .speaking-section {
-  padding: var(--gap) 6%;
+  padding: 110px 6%;
   background: var(--black);
   border-top: 1px solid var(--border-dim);
   border-bottom: 1px solid var(--border-dim);
@@ -439,14 +439,15 @@ nav {
   pointer-events: none;
 }
 .speaking-shell {
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  display: flex;
   gap: 68px;
   align-items: center;
   position: relative;
   z-index: 1;
 }
 .speaking-image-wrap {
+  flex: 0 0 46%;
+  min-width: 0;
   position: relative;
   border-radius: 8px;
   overflow: hidden;
@@ -494,6 +495,8 @@ nav {
   line-height: 1.55;
 }
 .speaking-copy {
+  flex: 1;
+  min-width: 0;
   padding: 12px 0;
 }
 .speaking-copy .lead {
@@ -558,7 +561,8 @@ nav {
   font-size: 12px;
 }
 @media (max-width: 760px) {
-  .speaking-shell { grid-template-columns: 1fr; gap: 40px; }
+  .speaking-shell { flex-direction: column; gap: 40px; }
+  .speaking-image-wrap { flex: none; width: 100%; }
   .speaking-image-wrap img { min-height: auto; aspect-ratio: 4/5; }
   .speaking-topics { grid-template-columns: 1fr; }
 }
