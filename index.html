@@ -601,13 +601,13 @@ nav {
 /* ── PACKAGES ── */
 .pkg-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2px; border: 1px solid var(--border-dim);
+  gap: 28px; border: none;
   border-radius: 6px; overflow: hidden;
   align-items: start;
 }
 .pkg {
   background: var(--navy-mid); padding: 40px 32px;
-  position: relative;
+  position: relative; border-radius: 10px; border: 1px solid var(--border-dim); overflow: hidden;
 }
 .pkg.featured { background: var(--navy-subtle); }
 .pkg-img {
@@ -1465,10 +1465,32 @@ footer {
 .route-breadcrumb { display:inline-flex; margin-bottom: 26px; color: var(--gold); border:1px solid rgba(201,162,39,.35); padding:8px 14px; border-radius:999px; font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; text-decoration:none; }
 @media (max-width: 960px) { .route-split, .campaign-grid, .poster-package { grid-template-columns: 1fr; } .route-page .route-footer { flex-direction: column; text-align:center; } }
 
+/* ── BOOK SHOP ── */
+.books-shop { padding: 0 6% 80px; }
+.books-shop-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.book-shop-card { background: var(--navy-light); border: 1px solid var(--border-dim); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.25s, box-shadow 0.25s; }
+.book-shop-card:hover { border-color: rgba(201,162,39,0.5); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+.book-shop-img { aspect-ratio: 3/4; overflow: hidden; background: var(--navy-mid); }
+.book-shop-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+.book-shop-card:hover .book-shop-img img { transform: scale(1.03); }
+.book-shop-body { padding: 22px 24px 28px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.book-shop-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.book-shop-title { font-size: 16px; font-weight: 600; color: var(--white); line-height: 1.4; }
+.book-shop-price { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 700; color: var(--gold); line-height: 1; margin: 6px 0 14px; }
+.book-shop-actions { display: flex; align-items: center; gap: 18px; margin-top: auto; }
+.book-shop-buy { background: var(--gold); color: #0a0f1c; font-weight: 700; padding: 11px 24px; border-radius: 6px; text-decoration: none; font-size: 13px; letter-spacing: 0.3px; transition: background 0.2s; white-space: nowrap; }
+.book-shop-buy:hover { background: #e0b728; }
+.book-shop-more { font-size: 13px; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,162,39,0.4); padding-bottom: 2px; transition: border-color 0.2s; white-space: nowrap; }
+.book-shop-more:hover { border-color: var(--gold); }
+/* ── MMW full-width override ── */
+.mmw-full { max-width: 860px; margin: 0 auto; }
+.mmw-bullets { list-style: none; padding: 0; margin: 28px 0 36px; display: flex; flex-direction: column; gap: 12px; }
+.mmw-bullets li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-dim); font-size: 15px; line-height: 1.5; }
+.mmw-bullets li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   .nav-links { display: none; }
-  .story-grid, .about-grid, .mmw-inner { grid-template-columns: 1fr; }
+  .story-grid, .about-grid { grid-template-columns: 1fr; }
   .story-img, .about-img { aspect-ratio: 16/9; }
   .feature-programme-inner, .offering-card.offering-featured { grid-template-columns: 1fr; }
   .offering-card.offering-featured .offering-image { border-right: none; border-bottom: 1px solid var(--border-dim); min-height: 360px; }
@@ -1476,6 +1498,7 @@ footer {
   footer { flex-direction: column; text-align: center; }
   .f-links { flex-wrap: wrap; justify-content: center; }
 }
+@media (max-width: 720px) { .books-shop-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -1483,14 +1506,6 @@ footer {
 <!-- ═══ NAV ═══ -->
 <nav>
 <div class="nav-logo">Mark<span>.</span>Kotze</div>
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#books">Books</a>
-<a href="#page-speaking">Speaking</a>
-<a href="#page-true-identity-programme">Programme</a>
-<a href="#mmw">Mark My Words</a>
-<a href="#packages">Coaching</a>
-</div>
 <a class="nav-cta" href="#packages">Book a Session</a>
 </nav>
 <!-- ═══ HERO ═══ -->
@@ -1512,10 +1527,8 @@ footer {
 </div>
 <div class="hero-actions">
 <a class="btn-gold" href="#packages">Book a Strategy Session</a>
-<a class="btn-outline" href="#page-speaking">Explore Keynote Topics</a>
 </div>
 <div class="hero-stats">
-<div class="stat"><span class="num">400+</span><span class="lbl">Lives Changed</span></div>
 <div class="stat"><span class="num">20+</span><span class="lbl">Years Experience</span></div>
 <div class="stat"><span class="num">3</span><span class="lbl">Published Books</span></div>
 <div class="stat"><span class="num">R30K</span><span class="lbl">Competition Prize Pool</span></div>
@@ -1563,11 +1576,6 @@ footer {
 <span class="tag">Change Story</span>
 <h2 class="h2">One Life. Completely Turned Around.</h2>
 <div class="story-grid" style="margin-top:48px;">
-<div class="story-img">
-<!-- REPLACE with client photo -->
-<svg fill="none" height="52" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" viewbox="0 0 24 24" width="52"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
-<span class="story-img-note">[ CLIENT PHOTO GOES HERE ]</span>
-</div>
 <div>
 <span class="big-quote-mark">"</span>
 <p class="big-quote-text">I walked in carrying a decade of decisions I wasn't proud of. Mark didn't judge a single one. He just asked the one question I'd been running from — and everything shifted from there.</p>
@@ -1582,6 +1590,11 @@ footer {
 <div class="story-role">Consultant &amp; MMW Mentor · Kimberley</div>
 </div>
 </div>
+</div>
+<div class="story-img">
+<!-- REPLACE with client photo -->
+<svg fill="none" height="52" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" viewbox="0 0 24 24" width="52"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path></svg>
+<span class="story-img-note">[ CLIENT PHOTO GOES HERE ]</span>
 </div>
 </div>
 </section>
@@ -1702,70 +1715,66 @@ footer {
 </div>
 </section>
 <!-- ═══ BOOK MARK SPEAKING ═══ -->
-<section class="speaking-section" id="speaking">
-<div class="speaking-shell">
-<div class="speaking-image-wrap">
-<picture><source type="image/webp" srcset="mark-kotze-assets/webp/mark-speaker-sm.webp 380w, mark-kotze-assets/webp/mark-speaker.webp 560w, mark-kotze-assets/webp/mark-speaker-2x.webp 1021w" sizes="(max-width:600px) 380px, 560px"><img loading="lazy" alt="Mark Kotze certified life coach and speaker" src="mark-kotze-assets/image-04-cc76c238b3.png" width="560" height="673"/></picture>
-<div class="speaking-image-badge">
-<strong>Certified Life Coach</strong>
-<span>Clarity. Purpose. Action. Transformation — brought into rooms where people need direction.</span>
-</div>
-</div>
-<div class="speaking-copy">
-<span class="tag">Book Mark To Speak</span>
+<section class=”speaking-section” id=”speaking”>
+<div class=”speaking-shell”>
+<div class=”speaking-copy”>
+<span class=”tag”>Book Mark To Speak</span>
 <h2 class=”h2”>Clarity. Purpose. Action.<br/><em>Brought into rooms that need direction.</em></h2>
 <p class=”lead”>Mark Kotze is a certified life coach and keynote speaker who brings real talk, lived experience, and practical tools into corporate teams, schools, leadership events, and community programmes. Every room he enters leaves with more clarity than it arrived with.</p>
 <div class=”speaking-pullquote”>
         “Clarity. Purpose. Action. Transformation — brought into rooms where people need direction.”
       </div>
-<div class="speaking-mini-list">
+<div class=”speaking-mini-list”>
 <span>Corporate teams</span>
 <span>Schools &amp; learners</span>
 <span>Leadership events</span>
 <span>Community programmes</span>
 <span>Personal development sessions</span>
 </div>
-<div class="speaking-topics">
-<div class="speaking-topic">
+<div class=”speaking-topics”>
+<div class=”speaking-topic”>
 <strong>Discover Your Path</strong>
 <span>Gain clarity and define the life, direction, or leadership standard you truly want.</span>
 </div>
-<div class="speaking-topic">
+<div class=”speaking-topic”>
 <strong>Align With Purpose</strong>
 <span>Reconnect with what matters most and build confidence around identity and calling.</span>
 </div>
-<div class="speaking-topic">
+<div class=”speaking-topic”>
 <strong>Set Goals &amp; Take Action</strong>
 <span>Create a practical plan that turns motivation into movement and lasting momentum.</span>
 </div>
-<div class="speaking-topic">
+<div class=”speaking-topic”>
 <strong>Transform Your Life</strong>
 <span>Break through limiting patterns and step into a stronger, clearer version of yourself.</span>
 </div>
 </div>
-<div class="speaking-actions">
-<a class="btn-gold" href="#page-speaking">Book Mark To Speak</a>
+<div class=”speaking-actions”>
+<a class=”btn-gold” href=”#page-speaking”>Book Mark To Speak</a>
+</div>
+</div>
+<div class=”speaking-image-wrap”>
+<picture><source type=”image/webp” srcset=”mark-kotze-assets/webp/mark-speaker-sm.webp 380w, mark-kotze-assets/webp/mark-speaker.webp 560w, mark-kotze-assets/webp/mark-speaker-2x.webp 1021w” sizes=”(max-width:600px) 380px, 560px”><img loading=”lazy” alt=”Mark Kotze certified life coach and speaker” src=”mark-kotze-assets/image-04-cc76c238b3.png” width=”560” height=”673”/></picture>
+<div class=”speaking-image-badge”>
+<strong>Certified Life Coach</strong>
+<span>Clarity. Purpose. Action. Transformation — brought into rooms where people need direction.</span>
 </div>
 </div>
 </div>
 </section>
 <!-- ═══ MARK MY WORDS INITIATIVE ═══ -->
 <section class="mmw" id="mmw">
-<div class="mmw-inner">
-<div class="mmw-body">
+<div class="mmw-full">
 <span class="tag">Flagship Initiative</span>
 <h2 class="h2">Mark My Words<br/>Competition</h2>
-<p class="lead mmw-lead">A transparent memoir that explores a very personal journey through some of his life's toughest ordeals and surviving extreme trials. Mark writes with radical honesty about the moments that shaped him — and the choices that changed everything.</p>
-<a class="mmw-link" href="https://www.markmywordstv.co.za/" target="_blank">
-        Visit markmywordstv.co.za →
-      </a>
-</div>
-<div class="mmw-stats">
-<div class="mmw-stat"><span class="n">R30K</span><span class="l">Cash Prize Pool</span></div>
-<div class="mmw-stat"><span class="n">Top 20</span><span class="l">Finalists Selected</span></div>
-<div class="mmw-stat"><span class="n">SABC</span><span class="l">National Coverage</span></div>
-<div class="mmw-stat"><span class="n">9 Provinces</span><span class="l">Expansion Vision</span></div>
-</div>
+<p class="lead" style="margin-bottom:0;">Mark My Words is a national competition that discovers and amplifies South Africa's next generation of voices. Founded by Mark Kotze, the competition draws participants from across the country — competing for recognition, mentorship, and a R30,000 cash prize pool broadcast to the nation on SABC.</p>
+<ul class="mmw-bullets">
+<li>R30,000 cash prize pool awarded to competition winners</li>
+<li>Top 20 finalists selected from submissions across South Africa</li>
+<li>National SABC coverage — bringing the competition into every home</li>
+<li>9 Provinces expansion vision — taking the platform countrywide</li>
+</ul>
+<a class="mmw-link" href="https://www.markmywordstv.co.za/" target="_blank">Visit markmywordstv.co.za →</a>
 </div>
 </section>
 <!-- ═══ PACKAGES ═══ -->
@@ -1843,6 +1852,58 @@ footer {
 </div>
 </div>
 </section>
+<!-- ═══ BOOK SHOP ═══ -->
+<div class="books-shop">
+<div class="center" style="margin-bottom:48px;">
+<span class="tag">Get Your Copy</span>
+<h2 class="h2">The Books.</h2>
+<p class="lead">Three books. One mission. Order your copy and start the journey today.</p>
+</div>
+<div class="books-shop-grid">
+<div class="book-shop-card">
+<div class="book-shop-img">
+<img loading="lazy" alt="Arrested without the right to remain silent by Mark Kotze" src="mark-kotze-assets/1.png" width="600" height="800" onerror="this.style.opacity='0.3'"/>
+</div>
+<div class="book-shop-body">
+<span class="book-shop-label">Memoir · Personal Growth</span>
+<div class="book-shop-title">Arrested… without the right to remain silent</div>
+<div class="book-shop-price">R506</div>
+<div class="book-shop-actions">
+<a class="book-shop-buy" href="#">Buy Now</a>
+<a class="book-shop-more" href="#page-arrested">View more</a>
+</div>
+</div>
+</div>
+<div class="book-shop-card">
+<div class="book-shop-img">
+<img loading="lazy" alt="8 Directions by Mark Kotze" src="mark-kotze-assets/2.png" width="600" height="800" onerror="this.style.opacity='0.3'"/>
+</div>
+<div class="book-shop-body">
+<span class="book-shop-label">Self-Help · Personal Mastery</span>
+<div class="book-shop-title">8 Directions</div>
+<div class="book-shop-price">R790</div>
+<div class="book-shop-actions">
+<a class="book-shop-buy" href="#">Buy Now</a>
+<a class="book-shop-more" href="#page-8-directions">View more</a>
+</div>
+</div>
+</div>
+<div class="book-shop-card">
+<div class="book-shop-img">
+<img loading="lazy" alt="Mistaken Identity 31 Day Positive Affirmations by Mark Kotze" src="mark-kotze-assets/3.png" width="600" height="800" onerror="this.style.opacity='0.3'"/>
+</div>
+<div class="book-shop-body">
+<span class="book-shop-label">Daily Practice · Identity Work</span>
+<div class="book-shop-title">Mistaken Identity — 31 Day Positive Affirmations</div>
+<div class="book-shop-price">R199</div>
+<div class="book-shop-actions">
+<a class="book-shop-buy" href="#">Buy Now</a>
+<a class="book-shop-more" href="#page-affirmations">View more</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 <!-- ═══ CTA BANNER ═══ -->
 <div class="cta-section">
 <h2>Your Words Already<br/>Have Power.</h2>
